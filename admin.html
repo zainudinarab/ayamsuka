@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+    <script src="assets/js/auth.js"></script>
+</head>
+
+<body onload="checkAdmin()">
+    <h1>Welcome, Admin!</h1>
+    <button onclick="logout()">Logout</button>
+
+    <script>
+        // Cek role sebelum akses
+        function checkAdmin() {
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (!user || user.role !== 'admin') {
+                alert('Akses ditolak!');
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+
+</html>
